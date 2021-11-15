@@ -1,0 +1,37 @@
+1. package
+    - 완전한 Application을(개발툴) npm으로 깔수 있음 ex) nodedaeom, babel, webpack
+    - 코드 샘플, 프로젝트에서 사용하는 모듈(library)
+2. 의존성(dependency)
+   
+    - 개발 하고 있는 프로젝트(어플리케이션, 패키지)에서 설치하고 사용하는 다른 페키지
+   
+    - 일반 의존성
+        - 개발 하고 있는 프로젝트에서 사용하는 패키지로 배포에 꼭 포함
+        설치방법 : $ npm i (설치할 패키지)
+   
+    - 개발 의존성
+        - 개발에 필요하거나 도움이 되는 패키지(dev tools)는 배포에 포합되지 않는다
+        설치방법 : $ npm i -D nodedaeom
+
+- 이렇게 둘을 나누는 이유는 내가 개발할때 사용했던 모듈들과 배포할때의 모듈을 구분해주어야 한다.
+- 배포할때는 모듈은 빼고 소스만 올리고 그 소스를 관리하는 놈들만 올려야 한다.
+3. package 설치 방식
+    1) 전역설치(global) : 여러 프로젝트에서 공통으로 사용하는 tools들 설치할때
+        설치방법 : $ npm -i g
+    2) 지역설치(project local) : 특정 프로젝트에만 종속적인 도구나 library
+        설치방법 : $ npm -i -D --> 개발 의존성 패키지 설치
+                   $ npm -i    -- > 일반 의존성 패키지 설치
+    3) 패키지 설치 순서
+        [project-ex01] $ npm i ejs          (local install, general dependency)
+        [project-ex01] $ npm i -D nodaemon  (local install, development dependency)
+        [project-ex01] $ npm i -g gulp      (global install)
+    4) 패키지 삭제
+        [project-ex01] $ npm un install     (local install 삭제)
+        [project-ex01] $ npm un -D nodaemon (local install 삭제)
+        [project-ex01] $ npm un -g gulp
+
+4. Node(JavaScript) project(C/S Application, package) 생성
+    생성 순서
+    1) project 디렉토리 생성 (mkdir)
+    2) 프로젝트 이동         (cd)
+    3) [project-ex01] $ npm init -y
