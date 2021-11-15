@@ -42,3 +42,12 @@
     3) npm 모듈: npm을 통해서 node_module에서 설치해서 사용하는 모듈
         - 로컬 배포
         - 원격 배포
+
+6. 원격 배포하기(npmjs.com npm registry에 패키지 배포하기)
+    1) 사용자 등록(회원가입)
+    2) 배포
+        -$ npm adduser 
+        Username: ...(내 npm아이디)
+        Password: ...(비밀번호)
+        // 배포하기
+        [dozone-ghksxk1002-math] $ npm publish
