@@ -7,7 +7,7 @@ module.exports = {
     findAll: async function(callback) {
         // 1. 커넷션 잡기 mysql 가져오기
         // dbconn.js 로 빼놨음
-        const conn = dbconn();
+        const conn =dbconn();
 
         // const query = function(sql, data){
         //     return new Promise(function(resolve, reject){
