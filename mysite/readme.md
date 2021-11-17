@@ -45,8 +45,8 @@
     |--- [multer-temporary-stoer]
     |--- config 환경변수 설정
     |--- public
+    |--- [upload-images]
     |       |--- assets
-    |               |--- [upload-images]
     |               |--- css
     |               |--- images
     |               |--- js
