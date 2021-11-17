@@ -8,7 +8,7 @@
 [mysite] $ npm i mysql2
 [mysite] $ npm i express-session 익스프레스에서 세션관리를 할수있는 모듈
 [mysite] $ npm i sequelize
-[mysite] $ npm i dotenv          환경설정하는 dotenv config로 빠진다
+[mysite] $ npm i dotenv          환경설정하는 dotenv,config로 빠진다
 [mysite] $ npm i multer          멀티파일 처리
 [mysite] $ npm i winston         로그인 로고파일남기기
 [mysite] $ npm i winston-daily-rotate-file

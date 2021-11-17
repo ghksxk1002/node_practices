@@ -4,9 +4,19 @@
   "description": "```bash\r [mysite] $ npm init -y\r [mysite] $ npm i ejs\r [mysite] $ npm i mysql2\r [mysite] $ npm i express-session 익스프레스에서 세션관리를 할수있는 모듈\r [mysite] $ npm i sequelize\r [mysite] $ npm i dotenv 환경설정하는 dotenv config로 빠진다\r [mysite] $ npm i multer\r [mysite] $ npm i winston 로그인 로고파일남기기\r [mysite] $ npm i winston-daily-rotate-file\r [mysite] $ npm i moment  날짜",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "debug": "nodemon index.js",
+    "test": "npx mocha"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
