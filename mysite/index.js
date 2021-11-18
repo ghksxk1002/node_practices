@@ -9,6 +9,7 @@ const port = 8080;
 
 // 1. Enviroment Variables 환경변수 설정 .. 환경변수는 단 한번만 읽어야 한다 프로그램이 실행할때 마다 dotenv읽으면 안된다
 dotenv.config({path: path.join(__dirname,'config/app.env')});
+dotenv.config({path: path.join(__dirname,'config/db.env')});
 
 // 2. Application Routes
 const {applicationRouters} = require('./routes'); 
