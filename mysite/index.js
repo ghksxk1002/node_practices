@@ -4,14 +4,14 @@ const express = require('express');
 const dotenv = require('dotenv')
 const port = 8080;
 
-const mainRouter = require('./routes/main');
-const userRouter = require('./routes/user');
+// const mainRouter = require('./routes/main');
+// const userRouter = require('./routes/user');
 
 // 1. Enviroment Variables 환경변수 설정 .. 환경변수는 단 한번만 읽어야 한다 프로그램이 실행할때 마다 dotenv읽으면 안된다
 dotenv.config({path: path.join(__dirname,'config/app.env')});
 
 // 2. Application Routes
-//const applicationRouters = require('../routes'); 
+const {applicationRouters} = require('./routes'); 
 
 // 3. logging
 
@@ -24,17 +24,9 @@ const application = express()
     .use(express.json())                      // application/json
     // 3. view engine setup
     .set('views', path.join(__dirname, 'views'))
-    .set('view engine', 'ejs')
-    // 4. request router(인증처리에 사용이 용의한 필터같은 존제) , router는 express
-    .all('*', function(req, res, next){
-        res.locals.req = req;
-        res.locals.res = res;
-        next();
-    })
+    .set('view engine', 'ejs');
     // 5. application Router Setup
-    .use('/', mainRouter)// 여기서 부터 프로그램이 시작된다
-    .use('/user', userRouter);// 여기서 부터 프로그램이 시작된다
-//applicationRouters.setup(application);
+    applicationRouters.setup(application);
 
 // Server Setup
 // httpModel
