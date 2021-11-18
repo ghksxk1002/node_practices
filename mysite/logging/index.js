@@ -1,3 +1,4 @@
+
 const winston = require('winston');
 const winstonDaily = require('winston-daily-rotate-file');
 const path = require('path');
@@ -37,7 +38,6 @@ const logger = winston.createLogger({
     })]
 });
 
-// 콘솔로깅
 process.env.PROFILE === 'dev' && logger.add(new winston.transports.Console({
   format: winston.format.combine(winston.format.colorize(), winston.format.simple())
 }));

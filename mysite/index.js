@@ -12,8 +12,9 @@ dotenv.config({path: path.join(__dirname,'config/app.env')});
 
 // 2. Application Routes
 const {applicationRouters} = require('./routes'); 
-
+const { SIGTERM } = require('constants');
 // 3. logging
+const logger = require('./logging');
 
 // 4. Application Setup
 const application = express()
@@ -32,16 +33,16 @@ const application = express()
 // httpModel
 http.createServer(application)
     .on('listening', function(){
-        console.log(`http server runs on ${process.env.PORT}`)
+        logger.info(`http server runs on ${process.env.PORT}`)
     }) // 서버가 올라간다음 on 으로 이벤트를 바로 걸수 있다
     .on('error', function(error){
         switch(error.code){
             case 'EACCESS':
-                console.error(`${process.env.PORT} requires privileges`); // 서버가 비정상적으로 종료 되었을때
+                logger.error(`${process.env.PORT} requires privileges`); // 서버가 비정상적으로 종료 되었을때
                 process.exit(1);
                 break;
             case 'EADDRINUSE':
-                console.error(`${process.env.PORT} is already in use`)      // 서버가 정상적으로 종료 되었을때
+                logger.error(`${process.env.PORT} is already in use`)      // 서버가 정상적으로 종료 되었을때
                 process.exit(0);
                 break;
             default:
