@@ -39,16 +39,17 @@ module.exports = {
     },
     delete: async function(req, res, next){
         try{
-            await models.Guestbook.destroy({
+            const results = await models.Guestbook.destroy({
                 where: {
                     [Op.and]: [{no : req.params.no}, {password: req.body.password}]    // 두개의 조건이 있는 배열
                 }
             })
-
+            console.log(results);
+            console.log(req.params.no);
             res.send({
                 result:'success',
                 message: null,
-                data: req.params.no
+                data: results 
             })
 
         } catch(e) {

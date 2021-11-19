@@ -10,6 +10,16 @@ const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.
 const User = require('./User')(sequelize);
 const Guestbook = require('./Guestbook')(sequelize);
 const Gallery = require('./Gallery')(sequelize);
+const Board = require('./Board')(sequelize);
+
+User.hasMany(Board,{
+    foreignKey:{
+        name: 'userNo',
+        allowNull: false,
+        constraints: true,
+        onDelete: 'CASECADE'
+    }
+})
 
 // DB에 반영(DDL)
 User.sync({
@@ -23,6 +33,11 @@ Guestbook.sync({
 });
 
 Gallery.sync({
+    force: process.env.TALEB_CREATE_ALWAYS === 'true',
+    alter: process.env.TALEB_ALTER_ALWAYS ==='true'
+});
+
+Board.sync({
     force: process.env.TALEB_CREATE_ALWAYS === 'true',
     alter: process.env.TALEB_ALTER_ALWAYS ==='true'
 });

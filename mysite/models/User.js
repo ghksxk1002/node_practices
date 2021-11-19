@@ -34,7 +34,7 @@ module.exports = function(sequelize){
         },
         role: {
             field: 'role', // 칼럼 이름
-            type: DataTypes.ENUM('user', 'admin'), // 데이터 타입
+            type: DataTypes.ENUM('USER', 'ADMIN'), // 데이터 타입
             allowNull: false, 
             defaultValue: 'USER'
         },

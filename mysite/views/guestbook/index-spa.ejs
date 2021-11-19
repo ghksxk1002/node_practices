@@ -41,7 +41,6 @@
 	// 글 리스트 불러오기
 	var fetch = function() {
 		var url = '/api/guestbook?sno=' + startNo;
-		console.log("--->" + startNo);
 		$.ajax({
 			url : url,
 			type : 'get',
