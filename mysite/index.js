@@ -1,7 +1,10 @@
 const http = require('http');
 const path = require('path');
 const express = require('express');
-const dotenv = require('dotenv')
+const session = require('express-session');
+const dotenv = require('dotenv');
+const multer = require('multer');
+
 const port = 8080;
 
 // const mainRouter = require('./routes/main');
@@ -19,12 +22,21 @@ const logger = require('./logging');
 
 // 4. Application Setup
 const application = express()
+    // 4-1. 세션 설정 Session Environment
+    .use(session({
+        secret: "mysite-session", // 센션을 만드는 키값 
+        resave: false
+    }))
     // 4-1. static resources
     .use(express.static(path.join(__dirname, process.env.STATIC_RESOURCES_DIRECTORY)))
     // 4-2. request body parser
     .use(express.urlencoded({extended: true})) // application/x-www-form-urlencoded --> 이러한 형식으로 오는 폼 데이터를 파싱해서 넣어줌
-    .use(express.json())                      // application/json
-    // 3. view engine setup
+    .use(express.json())  
+    // 4-3멀티파트                    // application/json
+    .use(multer({
+                dest: path.join(__dirname, process.env.MULTER_TEMPORARY_STORE) // 임시파일 설정
+    }).single('file'))
+    // 4-4. view engine setup
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs');
     // 5. application Router Setup

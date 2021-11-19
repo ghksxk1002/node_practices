@@ -8,7 +8,8 @@ const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.
 
 // Mapping 객체 import
 const User = require('./User')(sequelize);
-//const Guestbook = require('./Guestbook')(sequelize);
+const Guestbook = require('./Guestbook')(sequelize);
+const Gallery = require('./Gallery')(sequelize);
 
 // DB에 반영(DDL)
 User.sync({
@@ -16,5 +17,15 @@ User.sync({
     alter: process.env.TALEB_ALTER_ALWAYS ==='true'
 });
 
+Guestbook.sync({
+    force: process.env.TALEB_CREATE_ALWAYS === 'true',
+    alter: process.env.TALEB_ALTER_ALWAYS ==='true'
+});
+
+Gallery.sync({
+    force: process.env.TALEB_CREATE_ALWAYS === 'true',
+    alter: process.env.TALEB_ALTER_ALWAYS ==='true'
+});
+
 // Exports Mapping 객체
-module.exports = {User};
+module.exports = {User, Guestbook, Gallery};

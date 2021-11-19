@@ -6,13 +6,13 @@
 [mysite] $ npm init -y o
 [mysite] $ npm i ejs  o
 [mysite] $ npm i mysql2 o
-[mysite] $ npm i express-session 익스프레스에서 세션관리를 할수있는 모듈
+[mysite] $ npm i express-session o 익스프레스에서 세션관리를 할수있는 모듈
 [mysite] $ npm i sequelize o
 [mysite] $ npm i dotenv o         환경설정하는 dotenv,config로 빠진다
-[mysite] $ npm i multer          멀티파일 처리
+[mysite] $ npm i multer  o        멀티파일 처리
 [mysite] $ npm i winston o        로그인 로고파일남기기
 [mysite] $ npm i winston-daily-rotate-file o
-[mysite] $ npm i moment          날짜 
+[mysite] $ npm i moment          날짜 o
 
 [mysite] $ npm i -D nodemon
 [mysite] $ npm i -D mocha
